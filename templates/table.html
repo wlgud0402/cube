@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <style>
+      .title {
+        max-width: 300px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      table {
+        table-layout: fixed;
+        border-collapse: collapse;
+      }      
+      tr {
+        padding: 30px;
+        border-bottom: 1px solid gray;
+      }
+      td {
+        padding: 30px;
+      }
+      th {
+        padding: 10px;
+      }
+      tbody > tr:hover {
+        background-color:red;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr class="tr">
+          <th>글번호</th>
+          <th class="title">제목</th>
+          <th>글쓴이</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td class="title">오늘 하루 .. . . . .!</td>
+          <td>지동이</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td class="title">오늘 </td>
+          <td>지동이</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td class="title">오늘 !!!!!!!!!!!!!!!!!!!하루는 정말 재미 있고 점쩜그리고 나 난 ㅓ너너 !</td>
+          <td>지동이</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

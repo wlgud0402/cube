@@ -1,0 +1,120 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<div class="whole">
+    <header class="dcheader">
+        <div class="header_top">
+            <a href="/" class="main_logo">Cube</a>
+            <a href="/login" class="header_top_login">로그인</a>
+        </div>
+    </header>
+    <div class="menu">
+        <ul>
+            <li><a href="/boards" class="menu_list">게시판</a></li>
+        </ul>
+    </div>
+    <div class="wrap_inner">
+        <main class="container">
+            <section class="left_content">
+                <article class="boards_style">
+                    <ol>
+                        {% for board in boards %}
+                            <li class="boards_list">{{board.id}}<a href="/detail?detail_id={{board.id}}" class="boards_list">글제목:{{board.title}}   글쓴이:{{board.user_name}}</a></li>
+                        {% endfor %}
+                    </ol>
+
+                    <a href="/write" class="write_link">글쓰기</a>
+
+                    {% for page in pages %}
+                        <a class="link_page" href="/boards?page={{ page }}">{{ page }}</a>
+                    {% endfor %}
+                </article>
+            </section>
+            <section class="right_content">
+
+            </section>
+        </main>
+    </div>
+    <footer class="dcfoot"></footer>
+</div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2family=Nanum+Myeongjo:wght@700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+    </script>
+</head>
+<body>
+<div class="whole">
+    <header class="dcheader">
+        <div class="header_top">
+            <a href="/" class="main_logo">Cube</a>
+            <a href="/login" class="header_top_login">로그인</a>
+        </div>
+    </header>
+    <div class="menu">
+        <ul>
+            <li><a href="/boards" class="menu_list">게시판</a></li>
+        </ul>
+    </div>
+    <div class="wrap_inner">
+        <main class="container">
+            <section class="left_content">
+                <article class="boards_style">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>번호</th>
+                                <th class="table_title">제목</th>
+                                <th>글쓴이</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for board in boards %}
+                            <tr>
+                                <td class="table_number">{{board.id}}</td>
+                                <td class="table_title"><a href="detail?detail_id={{board.id}}" class="table_con">{{board.title}}</a></td>
+                                <td><a href="detail?detail_id={{board.id}}" class="table_con">{{board.user_name}}</a></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% for page in pages %}
+                        <a class="link_page" href="/boards?page={{ page }}">{{ page }}</a>
+                    {% endfor %}
+                    <a href="/write" class="write_link">글쓰기</a>
+                </article>
+            </section>
+            <section class="right_content">
+
+            </section>
+        </main>
+    </div>
+    <footer class="dcfoot"></footer>
+</div>
+</body>
+</html>
+
+<table>
+    
+</table>

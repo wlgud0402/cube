@@ -1,0 +1,46 @@
+venv 구성법
+참고 https://dojang.io/mod/page/view.php?id=2470
+
+git init
+
+python -m venv .venv-name(.venv는 그냥 파일명)
+( m = module-name 을 뜻함 )
+
+cd .venv >> cd scripts 
+
+venv활성화: . activate
+
+cd .. >> cd .. 으로 다시 내폴더로 돌아옴
+
+ls 로 잘 되고 있는지 확인
+
+pip install>>아무거나
+
+pip freeze > requirements.txt (requirements.txt 라는 파일에 pip install 된것들을 넣어줌 나중에 여기 저장된것들만 install가능함)
+
+.gitignore 라는 파일을 만들어줌 >> 이곳의 내용은 내가 무시할 폴더를 넣으면 된다 >> /.venv/
+
+나중에 다운받을때>>>>python -m venv .venv로 만들어 준후 pip install -r requirements.txt로 재설치
+
+
+
+
+
+
+pip install flask
+실행해서 활성화 ( git bash에선 . active 실행 )
+이후 설치시 Lib\site-packages 경로에 설치됨
+
+pip freeze > requirements.txt
+패키지 목록과 버전 정보 저장
+
+pip install -r requirements.txt
+후에 저장한 패키지 재설치 가능
+
+.gitignore 세팅 해주면 끝 ( .venv ignore 처리 )
+
+참고
+export FLASK_ENV=development
+-> export명령어로 쉘 변수를 환경변수로 저장할 수 있다.
+--> 이후 python server.py 실행하게되면
+--> flask는 해당 환경변수를 읽어서 개발(리로드)모드로 실행(os.environ['FLASK_ENV'])

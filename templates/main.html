@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인페이지</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="whole">
+    <header class="dcheader">
+        <div class="header_top">
+            <a href="/" class="main_logo">Cube</a>
+            <a href="/login" class="header_top_login">로그인</a>
+        </div>
+    </header>
+    <div class="menu">
+        <ul>
+            <li><a href="/boards" class="menu_list">게시판</a></li>
+        </ul>
+    </div>
+    <main class="container">
+        <div class="main_content clear">
+            <section class="left_content"></section>
+            <section class="right_content">
+                <div class="login">
+                    <fieldset>
+                        <form action="login_process" method='POST'>
+                            <input type="text" name="user_id" placeholder="아이디" class="input_info"><br>
+                            <input type="password" name="user_pw" placeholder="비밀번호" class="input_info">
+                            <button class="login_btn">로그인</button>
+                        </form>
+                        <br><a href="/join" class="join_link">회원가입</a>
+                    </fieldset>
+                </div>
+            </section>
+        </div>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="whole">
+        <header class="dcheader_join">
+            <a href="/" class="main_link">Cube</a>
+        </header>
+        <main class="container">
+            <div class="content_login">
+                <div class="join_box">
+                        <form action="/login_process" method='POST' class="form">
+                            <input type="text" name="user_id" placeholder="아이디" class="input_join"><br>
+                            <input type="password" name="user_pw" placeholder="비밀번호" class="input_join"><br>
+                            <button class="process_btn">로그인</button>
+                            <div class="tojoin_box"><a href="/join" class="tojoin">회원가입</a></div>
+                        </form>
+                </div>
+            </div>
+        </main>
+    </div>
+</html>
