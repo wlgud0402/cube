@@ -48,7 +48,7 @@ html, body {
 }
 
 .boards_style{
-    width:1000px;
+    width:745px;
     height:300px;
     position:absolute;
     left:50%;
@@ -63,6 +63,19 @@ html, body {
     padding-right:30px;
 }
 
+#top_menu{
+    margin-left:328px;
+}
+
+.edit_btn{
+    background-color: greenyellow;
+    color: green;
+    font-weight: bold;
+    height: 31px;
+    float: right;
+    cursor: pointer;
+}
+
 .header_top_login {
     float: right;
     background: #4a57a8;
@@ -74,15 +87,56 @@ html, body {
     margin:10px
 }
 
+.detail_list_margin{
+    margin-left: 412px;
+}
+
 .main_logo {
     text-decoration: none;
     color: #4A56A8;
     font-weight: bold;
     font-size: 60px;
-    position: absolute;
-    right: 91%;
+    margin-left:361px;
 }
 
+.boards_logo{
+    text-decoration: none;
+    color: #4A56A8;
+    font-weight: bold;
+    font-size: 60px;
+    margin-left: 451px;
+}
+
+.detail_whole{
+        background: #3c4790;
+        color: white;
+        border: 1px solid #3c4790;
+        padding: 5px 3px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 11px;
+        margin-left: 2px;
+    }
+
+.write_btn{
+    float: right;
+    background: #3c4790;
+    color: white;
+    border: 1px solid #3c4790;
+    padding: 5px 3px;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.delete_btn{
+    float:right;
+    background: red;
+    color: white;
+    border: 1px solid #3c4790;
+    padding: 5px 3px;
+    text-decoration: none;
+    margin: 10px;
+}
 
 ol, ul {
     list-style: none;
@@ -92,6 +146,11 @@ ol, ul {
     text-decoration: none;
     color: yellow;
     font-weight: bold;
+    margin-right: 25px;
+}
+
+.display_block{
+    display:inline-block;
 }
 
 .menu_list:hover {
@@ -155,9 +214,16 @@ ol, ul {
     background: #f3f3f3;
 }
 
+.table{
+    margin-top:40px;
+}
+
+.pagenation{
+    text-align: center;
+}
+
 .write_link{
-    position: absolute;
-    right: 58.5%;
+    float:right;
     margin: 2px;
     background: #4a57a8;
     color: white;
@@ -196,7 +262,7 @@ ol, ul {
 }
 
 .table_title {
-    max-width: 300px;
+    width:600px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -215,8 +281,12 @@ td {
      padding: 5px;
 }
 
+.active{
+    color:red
+}
+
   th {
-    padding: 10px;
+    padding: 5px;
   }
 
 tbody > tr:hover {
@@ -236,7 +306,6 @@ tbody > tr:hover {
 
 .link_page{
     text-decoration: none;
-    color: black;
     font-weight: bold;
 }
 
@@ -272,6 +341,7 @@ html, body{
     color: white;
     width: 99px;
     height: 45px;
+    cursor: pointer;
 }
 
 .detail_fieldset {
@@ -326,6 +396,7 @@ html, body{
     height: 35px;
     background-color: #3c4790;
     color:white;
+    cursor: pointer;
 }
 
 .tojoin{

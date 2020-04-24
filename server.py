@@ -279,4 +279,5 @@ def edit():
 
   return redirect("/detail?detail_id="+edit_id)
 
+
 app.run(port=3005, debug=True)

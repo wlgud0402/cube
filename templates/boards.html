@@ -1,55 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>게시판</title>
-    <link rel="stylesheet" href="/static/style.css">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous">
-    </script>
-</head>
-<body>
-<div class="whole">
-    <header class="dcheader">
-        <div class="header_top">
-            <a href="/" class="main_logo">Cube</a>
-            <a href="/login" class="header_top_login">로그인</a>
-        </div>
-    </header>
-    <div class="menu">
-        <ul>
-            <li><a href="/boards" class="menu_list">게시판</a></li>
-        </ul>
-    </div>
-    <div class="wrap_inner">
-        <main class="container">
-            <section class="left_content">
-                <article class="boards_style">
-                    <ol>
-                        {% for board in boards %}
-                            <li class="boards_list">{{board.id}}<a href="/detail?detail_id={{board.id}}" class="boards_list">글제목:{{board.title}}   글쓴이:{{board.user_name}}</a></li>
-                        {% endfor %}
-                    </ol>
-
-                    <a href="/write" class="write_link">글쓰기</a>
-
-                    {% for page in pages %}
-                        <a class="link_page" href="/boards?page={{ page }}">{{ page }}</a>
-                    {% endfor %}
-                </article>
-            </section>
-            <section class="right_content">
-
-            </section>
-        </main>
-    </div>
-    <footer class="dcfoot"></footer>
-</div>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,17 +14,7 @@
 </head>
 <body>
 <div class="whole">
-    <header class="dcheader">
-        <div class="header_top">
-            <a href="/" class="main_logo">Cube</a>
-            <a href="/login" class="header_top_login">로그인</a>
-        </div>
-    </header>
-    <div class="menu">
-        <ul>
-            <li><a href="/boards" class="menu_list">게시판</a></li>
-        </ul>
-    </div>
+    {% include 'include0.html' %}
     <div class="wrap_inner">
         <main class="container">
             <section class="left_content">
@@ -99,10 +37,12 @@
                             {% endfor %}
                         </tbody>
                     </table>
+                    <a href="/write" class="write_link">글쓰기</a>
+                    <div class="pagenation">
                     {% for page in pages %}
                         <a class="link_page" href="/boards?page={{ page }}">{{ page }}</a>
                     {% endfor %}
-                    <a href="/write" class="write_link">글쓰기</a>
+                    </div>
                 </article>
             </section>
             <section class="right_content">
@@ -112,9 +52,17 @@
     </div>
     <footer class="dcfoot"></footer>
 </div>
+<script>
+    const urlParams = new URLSearchParams(window.location.search);  //window.location.search을 통해 url 쿼리스트링을 파싱함 ex) ?id=hit&no=15747;
+    const page = urlParams.get('page')
+
+    //jquery 
+    $(".link_page").each(function() {
+      if($(this).text() === page){
+        $(this).addClass('active')
+      }
+    })
+
+</script>
 </body>
 </html>
-
-<table>
-    
-</table>
