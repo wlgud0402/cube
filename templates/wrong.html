@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 실패</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <h1>아이디/비밀번호가 잘못되었습니다.</h1>
-    <fieldset>
-        <form action="login_process" method='POST'>
-            <input type="text" name="user_id" placeholder="아이디"><br>
-            <input type="password" name="user_pw" placeholder="비밀번호"><br>
-            <button>로그인</button>
-        </form>
-    </fieldset>
-</body>
+    <div class="whole">
+        {% include 'include1.html' %}
+        <main class="container">
+            <h1>아이디/비밀번호가 잘못되었습니다.</h1>
+            <div class="content_login">
+                <div class="join_box">
+                        <form action="/login_process" method='POST' class="form">
+                            <input type="text" name="user_id" placeholder="아이디" class="input_join"><br>
+                            <input type="password" name="user_pw" placeholder="비밀번호" class="input_join"><br>
+                            <button class="process_btn">로그인</button>
+                            <div class="tojoin_box"><a href="/join" class="tojoin">회원가입</a></div>
+                        </form>
+                </div>
+            </div>
+        </main>
+    </div>
 </html>

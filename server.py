@@ -174,7 +174,7 @@ def boards():
     connection=getConnection()
     cursor = connection.cursor(pymysql.cursors.DictCursor)
 
-    sql = "SELECT boards.id, boards.title, boards.content, members.user_name FROM boards JOIN members ON boards.member_id = members.id LIMIT %s,10"
+    sql = "SELECT boards.id, boards.title, boards.content, members.user_name FROM boards JOIN members ON boards.member_id = members.id ORDER BY boards.id DESC LIMIT %s,10"
     cursor.execute(sql,((page-1)*10))
     rows = cursor.fetchall()
     
@@ -259,25 +259,56 @@ def delete():
         connection.commit()
         connection.close()
 
-        return redirect("/boards")
+        return redirect("/alert")
     else:
         return "사용자만 삭제할 수 있습니다."
 
+@app.route("/alert")
+def alert():
+    return render_template("alert.html")
+
 @app.route("/edit", methods=['GET','POST'])
 def edit():
-  edit = request.form.get("edit")
-  edit_id = request.args.get("edit_id")
+    uuid = request.cookies.get("uuid")
+    edit = request.form.get("edit")
+    board_id = request.args.get("edit_id")
 
-  connection = getConnection()
-  cursor = connection.cursor(pymysql.cursors.DictCursor)
+    if uuid == None:
+        return "로그인이 되어있지 않습니다."
 
-  sql = "UPDATE boards SET content = %s WHERE id = %s"
-  cursor.execute(sql, (edit, edit_id))
+    connection = getConnection()
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
 
-  connection.commit()
-  connection.close()
+    sql = "SELECT * FROM members WHERE uuid=%s"
+    cursor.execute(sql,(uuid))
 
-  return redirect("/detail?detail_id="+edit_id)
+    member = cursor.fetchone()
+    connection.close()
 
+    if member == None:
+        return redirect("/warning")
+    
+    connection = getConnection()
+    cursor = connection.cursor(pymysql.cursors.DictCursor)
+
+    sql = "SELECT * FROM boards WHERE id=%s"
+    cursor.execute(sql,(board_id))
+    board = cursor.fetchone()
+
+    connection.close()
+
+    if member['id'] == board['member_id']:
+        connection = getConnection()
+        cursor = connection.cursor(pymysql.cursors.DictCursor)
+
+        sql = "UPDATE boards SET content = %s WHERE id = %s"
+        cursor.execute(sql, (edit, board_id))
+
+        connection.commit()
+        connection.close()
+
+        return redirect("/detail?detail_id="+board_id)
+    else:
+        return "작성자만 수정할 수 있습니다."
 
 app.run(port=3005, debug=True)

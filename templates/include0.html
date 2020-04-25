@@ -9,7 +9,13 @@
     <header class="dcheader">
         <div class="header_top">
             <a href="/" class="main_logo">Cube</a>
-            <a href="/login" class="header_top_login">로그인</a>
+
+            {% if member %}
+            <span class="name_top">{{member.user_name}}</span>
+            {% else %}
+            <span><a href="/login" class="header_top_login">로그인</a></span>
+            {% endif %}
+
         </div>
     </header>
     <div class="menu">

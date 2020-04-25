@@ -42,7 +42,8 @@
                 <fieldset class="comments_field">
                     <div class="comments_input">
                         <form action="/detail/comment?id={{ detail.id }}" method="POST">
-                            <input name="content" class="comments_input"/>
+                            <textarea name="content" class="comments_input"></textarea>
+                            <!-- <input name="content" class="comments_input"/> -->
                             <button class="comments_btn">댓글달기</button>
                         </form>
                     </div>
@@ -62,7 +63,7 @@
 <script>
     function onClickButton (number) {
         $(".btn_" + number).append(
-            `<form action="/edit?edit_id=${number}" method='POST'><input type='text' name='edit' placeholder='내용'/><button>등록하기</button></form>`
+            `<form action="/edit?edit_id=${number}" method='POST'><input type='text' name='edit' placeholder='내용'/><button>수정</button></form>`
         )
     }   
 </script>
