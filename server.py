@@ -4,8 +4,12 @@ from flask import request
 from flask import redirect
 from flask import make_response
 from uuid import uuid1
+from urllib.request import urlopen
+from urllib.request import Request
+from bs4 import BeautifulSoup
 import pymysql
 import math
+import requests
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
@@ -19,7 +23,61 @@ def getConnection():
 
 @app.route("/")
 def main():
-    return render_template("main.html")
+    movies=[]
+    humors=[]
+
+    html = urlopen('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
+    bs = BeautifulSoup(html, 'html.parser')
+
+    rankSection = bs.find('tbody')
+    rankHrefs = rankSection.find_all('a')
+
+    for i, rankHref in enumerate(rankHrefs):
+        address = str(rankHref.attrs.get('href'))
+        title = rankHref.string
+        rank = i + 1
+
+        movie ={
+            "rank":rank,
+            "title":title,
+            "address":address
+        }
+
+        movies.append(movie)
+
+        if i == 9:
+            break 
+
+    headers={
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:65.0) Gecko/20100101 Firefox/65.0'
+    }
+
+    req = Request(url="http://web.humoruniv.com/main.html", headers=headers)
+    response = urlopen(req)
+
+    html = response.read()#.decode("ms949")
+    bs = BeautifulSoup(html, 'html.parser')
+
+    rankSection = bs.find('div',{'class':'best_right'})
+    rankHrefs = rankSection.find('li').find_all('a')
+
+    for i, rankHref in enumerate(rankHrefs):
+        address = str(rankHref.attrs.get('href'))
+        title = rankHref.string
+        rank = i + 1
+
+        humor ={
+            "rank":rank,
+            "title":title,
+            "address":address
+        }
+
+        humors.append(humor)
+
+        if i == 9:
+            break
+
+    return render_template("main.html", movies=movies, humors=humors)
 
 #회원가입 로그인-----------------------------------------------------------------------------------------------------------------------
 
@@ -165,6 +223,17 @@ def write_process():
 
 @app.route("/boards", methods=['GET'])
 def boards():
+    uuid = request.cookies.get("uuid")
+
+    member = None
+    if uuid:
+        connection = getConnection()
+        cursor = connection.cursor(pymysql.cursors.DictCursor)
+
+        sql = "SELECT * FROM members WHERE uuid=%s"
+        cursor.execute(sql, (uuid))
+        member = cursor.fetchone()   
+
     page = request.args.get("page")
     if page == None:
         page = 1
@@ -188,7 +257,7 @@ def boards():
     pages=[]
     for i in range(1, pageCount +1):
         pages.append(i)
-    return render_template("boards.html", boards=rows, pages=pages)
+    return render_template("boards.html", boards=rows, pages=pages, member=member)
 
 @app.route("/detail", methods=['GET'])
 def detail():

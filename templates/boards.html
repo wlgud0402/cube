@@ -54,7 +54,11 @@
 </div>
 <script>
     const urlParams = new URLSearchParams(window.location.search);  //window.location.search을 통해 url 쿼리스트링을 파싱함 ex) ?id=hit&no=15747;
-    const page = urlParams.get('page')
+    let page = urlParams.get('page')
+
+    if(page === null) {
+        page = '1'
+    }
 
     //jquery 
     $(".link_page").each(function() {
@@ -69,9 +73,11 @@
           }
     })*/
 
+    /*
     if(page === null){
         $(".1").addClass('active')
     }
+    */
 
 
 </script>

@@ -380,6 +380,10 @@ html, body{
     height: 375px;
 }
 
+.detail_content > div {
+    white-space: pre;
+}
+
 .comments_block{
     border-right:none;
     border-left:none;
@@ -424,4 +428,40 @@ html, body{
 
 .tojoin_box {
     margin-top:9px
+}
+
+.ranking{
+    font-weight: bold;
+    background-color: #f3f3f3;
+    margin-top: 0;
+    padding: 10px;
+}
+
+.movie_rank{
+    display:inline-block;
+    width:49%;
+    border: 1px solid #f3f3f3;
+    border-top:none;
+}
+
+.humor_rank{
+    float:right;
+    width:50%;
+    border: 1px solid #f3f3f3;
+    border-top:none;
+}
+
+.ranklists{
+    text-decoration: none;
+    color:black;
+    margin-top: 6px;
+}
+
+.ranklists:hover{
+    color:red;
+    text-decoration: underline;
+}
+
+.blank{
+    padding:2px;
 }

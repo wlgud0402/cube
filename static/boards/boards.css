@@ -1,0 +1,151 @@
+.dcheader{
+    display:block;
+    height:90px;
+}
+
+.main_logo {
+    text-decoration: none;
+    color: #4A56A8;
+    font-weight: bold;
+    font-size: 60px;
+    margin-left:361px;
+}
+
+.name_top{
+    float: right;
+    margin: 9px;
+    font-weight: bold;
+    background-color: greenyellow;
+    color: darkblue;
+}
+
+.header_top_login {
+    float: right;
+    background: #4a57a8;
+    color:white;
+    border: 1px solid #3c4790;
+    line-height: 18px;
+    padding: 0 3px;
+    text-decoration: none;
+    margin:10px
+}
+
+.menu{
+    min-width: 1000px;
+    background-color: #4A56A8;
+    border: 1px solid #3c4790;
+    border-width: 1px 0 1px 0;
+    height: 50px;
+}
+
+.display_block{
+    display:inline-block;
+}
+
+.menu_list {
+    text-decoration: none;
+    color: yellow;
+    font-weight: bold;
+    margin-right: 25px;
+}
+
+.menu_list:hover {
+    text-decoration: underline;
+}
+
+#top_menu{
+    margin-left:328px;
+}
+
+/* ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ */
+.whole{
+    min-height:1000px;
+    position: relative;
+}
+
+.container{
+    display:block;
+}
+
+.left_content {
+    float: left;
+    width: 728px;
+    position: relative;
+}
+
+.boards_style{
+    width:745px;
+    height:300px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-150px;
+    margin-top:-150px;
+    margin:0 auto;
+}
+
+.table_number {
+    text-align: center;
+}
+
+.table_title {
+    width:600px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.table_con{
+    text-decoration: none;
+    color:black;
+}
+
+.write_link{
+    float:right;
+    margin: 2px;
+    background: #4a57a8;
+    color: white;
+    border: 1px solid #3c4790;
+    padding: 0 3px;
+    text-decoration: none;
+}
+
+.pagenation{
+    text-align: center;
+}
+
+.link_page{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link_page:hover{
+    text-decoration: underline;
+}
+
+.active{
+    color:red
+}
+
+tbody > tr:hover {
+    text-decoration: underline;
+    background: #f3f3f3;
+    cursor: pointer;
+}
+
+html, body{
+    margin:0;
+    padding:0;
+}
+
+tr{
+    border-bottom: 1px solid gray;
+}
+
+td {
+     padding: 5px;
+}
+
+  th {
+    padding: 5px;
+  }

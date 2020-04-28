@@ -11,7 +11,26 @@
     {% include 'include0.html' %}
     <main class="container">
         <div class="main_content clear">
-            <section class="left_content"></section>
+            <section class="left_content">
+                <div class="movie_rank">
+
+                    <p class="ranking">영화 순위</p>
+                    {% for movie in movies %}
+                        <a href="https://movie.naver.com{{movie.address}}" target="_blank" class="ranklists">{{movie.rank}}위:{{movie.title}}</a>
+                        <div class="blank"></div>
+                    {% endfor %}
+
+                </div>
+                <div class="humor_rank">
+
+                    <p class="ranking">유머 순위</p>
+                    {% for humor in humors %}
+                        <a href="http://web.humoruniv.com{{humor.address}}" target="_blank" class="ranklists">{{humor.rank}}위:{{humor.title}}</a>
+                        <div class="blank"></div>
+                    {% endfor %}
+
+                </div>
+            </section>
             <section class="right_content">
                 <div class="login">
                     <fieldset>
