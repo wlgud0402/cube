@@ -25,6 +25,8 @@ def getConnection():
 def main():
     movies=[]
     humors=[]
+    newss=[]
+    songs=[]
 
     html = urlopen('https://movie.naver.com/movie/sdb/rank/rmovie.nhn')
     bs = BeautifulSoup(html, 'html.parser')
@@ -77,7 +79,51 @@ def main():
         if i == 9:
             break
 
-    return render_template("main.html", movies=movies, humors=humors)
+    html = urlopen('https://search.naver.com/search.naver?sm=tab_hty.top&where=nexearch&query=%EB%89%B4%EC%8A%A4&oquery=%EB%89%B4%EC%8A%A4&tqi=UqC7pwprvxsssdN8No4ssssstRN-514238')
+    bs = BeautifulSoup(html, 'html.parser')
+
+    rankSection = bs.find('ol',{'class':'lst_realtime_srch'})
+    rankHrefs = rankSection.find_all('a')
+
+    for i, rankHref in enumerate(rankHrefs):
+        address = rankHref.attrs.get('href')
+        title = rankHref.find('span',{'class':'tit'}).text
+        rank = i + 1
+
+        news ={
+            "rank":rank,
+            "title":title,
+            "address":address
+        }
+
+        newss.append(news)
+
+        if i == 9:
+            break
+
+    html = urlopen('https://music.bugs.co.kr/')
+    bs = BeautifulSoup(html, 'html.parser')
+
+    rankSection = bs.find('tbody')
+    rankHrefs = rankSection.find_all('th')
+
+    for i, rankHref in enumerate(rankHrefs):
+        address = rankHref.find('a').attrs.get('href')
+        title = rankHref.find('p',{'class':'title'}).text.strip()
+        rank = i + 1
+
+        song ={
+            "rank":rank,
+            "title":title,
+            "address":address
+        }
+
+        songs.append(song)
+
+        if i == 9:
+            break
+
+    return render_template("main.html", movies=movies, humors=humors, newss=newss, songs=songs)
 
 #회원가입 로그인-----------------------------------------------------------------------------------------------------------------------
 

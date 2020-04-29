@@ -14,7 +14,7 @@
             <section class="left_content">
                 <div class="movie_rank">
 
-                    <p class="ranking">영화 순위</p>
+                    <p class="ranking" id="movie_color">영화 순위</p>
                     {% for movie in movies %}
                         <a href="https://movie.naver.com{{movie.address}}" target="_blank" class="ranklists">{{movie.rank}}위:{{movie.title}}</a>
                         <div class="blank"></div>
@@ -23,9 +23,27 @@
                 </div>
                 <div class="humor_rank">
 
-                    <p class="ranking">유머 순위</p>
+                    <p class="ranking" id="humor_color">유머 순위</p>
                     {% for humor in humors %}
                         <a href="http://web.humoruniv.com{{humor.address}}" target="_blank" class="ranklists">{{humor.rank}}위:{{humor.title}}</a>
+                        <div class="blank"></div>
+                    {% endfor %}
+
+                </div>
+                <div class="news_rank">
+
+                    <p class="ranking" id="news_color">뉴스 순위</p>
+                    {% for news in newss %}
+                        <a href="https://search.naver.com/search.naver{{news.address}}" target="_blank" class="ranklists">{{news.rank}}위:{{news.title}}</a>
+                        <div class="blank"></div>
+                    {% endfor %}
+
+                </div>
+                <div class="song_rank">
+
+                    <p class="ranking" id="song_color">노래 순위</p>
+                    {% for song in songs %}
+                        <a href="{{song.address}}" target="_blank" class="ranklists">{{song.rank}}위:{{song.title}}</a>
                         <div class="blank"></div>
                     {% endfor %}
 

@@ -442,6 +442,29 @@ html, body{
     width:49%;
     border: 1px solid #f3f3f3;
     border-top:none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.news_rank{
+    display:inline-block;
+    width:49%;
+    border: 1px solid #f3f3f3;
+    border-top:none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.song_rank{
+    float:right;
+    width:50%;
+    border: 1px solid #f3f3f3;
+    border-top:none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .humor_rank{
@@ -449,6 +472,9 @@ html, body{
     width:50%;
     border: 1px solid #f3f3f3;
     border-top:none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .ranklists{
@@ -464,4 +490,16 @@ html, body{
 
 .blank{
     padding:2px;
+}
+
+#movie_color{
+    background-color: antiquewhite;
+}
+
+#humor_color{
+    background-color: orange;
+}
+
+#song_color{
+    background-color: yellow;
 }
